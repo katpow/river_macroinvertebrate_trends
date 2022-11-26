@@ -16,7 +16,7 @@ print(i)
 data<- fam_ab %>% filter(family_taxon==i) %>% select(total_abundance, year_scaled, geology, dfromsrc_cat, mean_alt_cat, site_id, sample_id)
 mod<- try(glmer(total_abundance ~ year_scaled + (1|year_scaled) + (year_scaled|site_id) + (1|sample_id), data=data, family=poisson, nAGQ=0))
 if(isTRUE(class(mod)=="try-error")) {next} else {
-  saveRDS(mod, file.path("year_only_family/models", paste( gsub(" ", "_", i), "mod.rds", sep="_")))}
+  saveRDS(mod, file.path("paste( gsub(" ", "_", i), "mod.rds", sep="_")))}
 
 
 
